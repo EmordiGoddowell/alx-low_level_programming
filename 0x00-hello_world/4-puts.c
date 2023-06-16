@@ -1,7 +1,9 @@
 #include <stdio.h>
 
 /**
- * The main function is the entry point of the program.
+ *main- entry point
+ *
+ *return: 0(success)
  */
 int main(void)
 {
