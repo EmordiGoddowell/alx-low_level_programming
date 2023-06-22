@@ -1,45 +1,43 @@
 #include "main.h"
-/**
-* print_number - Prints an integer using putchar
-* @n: The number to be printed
-*/
-void print_number(int n)
-{
-	if (n / 10 != 0)
-		print_number(n / 10);
-	if (n < 0)
-	n = -n;
-
-	_putchar('0' + (n % 10));
-}
-
+#include <stdio.h>
 /**
 * print_to_98 - Prints all natural numbers from n to 98
-* @n: The starting number
+* @n: The number to start printing from
+* Return: Always 0.
 */
 void print_to_98(int n)
 {
 	if (n <= 98)
 	{
-		while (n < 98)
+		for (; n <= 98; n++)
 		{
-			print_number(n);
-			_putchar(',');
-			_putchar(' ');
-			n++;
+			if (n == 98)
+			{
+			printf("%d", n);
+			printf("\n");
+			break;
+		}
+		else
+		{
+			printf("%d, ", n);
+		
 		}
 	}
-	else
-	{
-		while (n > 98)
+}
+else
+{
+		for (; n >= 98; n--)
 		{
-			print_number(n);
-			_putchar(',');
-			_putchar(' ');
-			n--;
+		if (n == 98)
+		{
+			printf("%d", n);
+			printf("\n");
+			break;
+		}
+		else
+		{
+			printf("%d, ", n);
+			}
 		}
 	}
-
-	print_number(n);
-	_putchar('\n');
 }
