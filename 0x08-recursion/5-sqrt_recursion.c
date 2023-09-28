@@ -1,21 +1,20 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
-* _sqrt_recursive - Recursive function to find the square root of a number.
+* _sqrt_recursive - Recursively finds the natural square root of a number.
 * @n: The number for which to find the square root.
-* @approximation: The current approximation for the square root.
+* @i: Iterator used in the recursive process.
 *
-* Return: The square root if found, otherwise -1.
+* Return: The resulting square root.
 */
 
-int _sqrt_recursive(int n, int approximation);
+int _sqrt_recursive(int n, int i);
 
 /**
-* _sqrt_recursion - Find the square root of a non-negative integer.
-* @n: The non-negative integer for which to find the square root.
+* _sqrt_recursion - Returns the natural square root of a number.
+* @n: The number to calculate the square root of.
 *
-* Return: The square root of n, or -1 if n is negative.
+* Return: The resulting square root.
 */
 
 int _sqrt_recursion(int n)
@@ -24,28 +23,24 @@ int _sqrt_recursion(int n)
 	{
 		return (-1);
 	}
-	else if (n == 0 || n == 1)
-	{
-		return (n);
-	}
 	else
 	{
-		return (_sqrt_recursive(n, n / 2));
+		return (_sqrt_recursive(n, 0));
 	}
 }
 
-int _sqrt_recursive(int n, int approximation)
+int _sqrt_recursive(int n, int i)
 {
-	if (approximation * approximation == n)
-	{
-		return (approximation);
-	}
-	else if (approximation == 0)
+	if (i * i > n)
 	{
 		return (-1);
 	}
+	if (i * i == n)
+	{
+		return (i);
+	}
 	else
 	{
-		return (_sqrt_recursive(n, approximation - 1));
+		return (_sqrt_recursive(n, i + 1));
 	}
 }
