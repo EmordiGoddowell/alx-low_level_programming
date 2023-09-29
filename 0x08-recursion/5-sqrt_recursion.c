@@ -1,13 +1,5 @@
 #include "main.h"
 
-/**
-* _sqrt_recursive - Recursively finds the natural square root of a number.
-* @n: The number for which to find the square root.
-* @i: Iterator used in the recursive process.
-*
-* Return: The resulting square root.
-*/
-
 int _sqrt_recursive(int n, int i);
 
 /**
@@ -29,6 +21,13 @@ int _sqrt_recursion(int n)
 	}
 }
 
+/**
+*  _sqrt_recursive - Recursively calculates the square root of a number.
+*  @n: The number for which to find the square root.
+*   @i: Iterator used in the recursive process.
+*
+*   Return: The resulting square root.
+*/
 int _sqrt_recursive(int n, int i)
 {
 	if (i * i > n)
