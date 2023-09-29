@@ -1,51 +1,39 @@
 #include "main.h"
-#include <stdio.h>
+#include <string.h>
+
 
 /**
-* _sqrt_recursive - Recursive function to find the square root of a number.
-* @n: The number for which to find the square root.
-* @approximation: The current approximation for the square root.
-*
-* Return: The square root if found, otherwise -1.
-*/
+ * is_palindrome - Runs through the string and check if its a palindrome.
+ * @s: a pointer to a string im memory that will be checked.
+ *
+ * Return: 1 if the string pointed to is a palindrome and 0 if otherwise.
+**/
 
-int _sqrt_recursive(int n, int approximation);
-
-/**
-* _sqrt_recursion - Find the square root of a non-negative integer.
-* @n: The non-negative integer for which to find the square root.
-*
-* Return: The square root of n, or -1 if n is negative.
-*/
-
-int _sqrt_recursion(int n)
+int is_palindrome(char *s)
 {
-	if (n < 0)
-	{
-		return (-1);
-	}
-	else if (n == 0 || n == 1)
-	{
-		return (n);
-	}
-	else
-	{
-		return (_sqrt_recursive(n, n / 2));
-	}
+	if (*s == '\0' || *(s + 1 ) == '\0')
+        {
+                return (1);
+        }
+        if (!is_alphabetic(*s))
+        {
+                return (is_palindrome(s + 1));
+        }
+        if (*s == *(s + strlen(s) - 1))
+        {
+                return (is_palindrome(s + 1));
+        }
+        return (0);
 }
 
-int _sqrt_recursive(int n, int approximation)
+/**
+ * is_alphabetic - Checks if the character 'c' is an alphabet letter (a-zA-Z).
+ * @c: The character to be checked.
+ *
+ * Return: 1 if 'c' is an alphabet letter, 0 otherwise.
+ */
+
+int is_alphabetic(char c)
 {
-	if (approximation * approximation == n)
-	{
-		return (approximation);
-	}
-	else if (approximation == 0)
-	{
-		return (-1);
-	}
-	else
-	{
-		return (_sqrt_recursive(n, approximation - 1));
-	}
+        return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
 }
