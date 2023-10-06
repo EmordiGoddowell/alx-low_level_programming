@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 
 int count_words(char *str);
 char **alloc_words(int num_words);
@@ -74,6 +75,10 @@ int count_words(char *str)
 		else if (*str == ' ')
 		{
 			in_word = 0;
+		}
+		if (in_word == 1)
+		{
+			num_words++;
 		}
 	}
 	return (num_words);
