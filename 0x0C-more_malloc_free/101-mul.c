@@ -1,3 +1,4 @@
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -21,23 +22,23 @@ int main(int argc, char *argv[])
 	if (argc != 3)
 	{
 		printf("Error\n");
-		return (1);
+		exit(98);
 	}
 
 	num1 = argv[1];
 	num2 = argv[2];
 
 	for (i = 0; num1[i]; i++)
-		if (num1[i] < '0' || num1[i] > '9')
+		if (!isdigit(num1[i]))
 		{
 			printf("Error\n");
-			return (1);
+			exit(98);
 		}
 	for (i = 0; num2[i]; i++)
-		if (num2[i] < '0' || num2[i] > '9')
+		if (!isdigit(num2[i]))
 		{
 			printf("Error\n");
-			return (1);
+			exit(98);
 		}
 
 	multiply(num1, num2);
