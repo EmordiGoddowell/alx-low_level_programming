@@ -1,0 +1,3 @@
+This is a README for struct and data types.
+
+to be continued......
