@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
  * main - entry point.
@@ -8,7 +8,6 @@
 
 int main(void)
 {
-	PRINT_FILE_NAME(__FILE__);
-	PRINT_NEW_LINE;
+	printf("%s\n", __FILE__);
 	return (0);
 }
