@@ -3,6 +3,7 @@
 
 /**
  * struct dog - a structure representing a dog
+ * dog_t - a type definition for a structure dog
  * @name: The name of the dog
  * @age: The age of the dog
  * @owner: The owner of the dog
@@ -16,10 +17,6 @@ struct dog
 	float age;
 	char *owner;
 };
-
-/**
- * dog_t - a type definition for a structure dog.
-**/
 
 typedef struct dog dog_t;
 
