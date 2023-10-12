@@ -8,7 +8,7 @@ void print_opcodes(int num_bytes);
  * @argc: arguement count.
  * @argv: arguement vector
  *
- * Return: 1 and 2 if failed, and 0 for successfuk execution.
+ * Return: 1 if failed, and 0 for successfuk execution.
 **/
 
 int main(int argc, char *argv[])
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 	if (num_bytes < 0)
 	{
 		printf("Error\n");
-		return (2);
+		return (1);
 	}
 	print_opcodes(num_bytes);
 
