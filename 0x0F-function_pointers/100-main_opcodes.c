@@ -8,7 +8,7 @@ void print_opcodes(int num_bytes);
  * @argc: arguement count.
  * @argv: arguement vector
  *
- * Return: 1 if failed, and 0 for successfuk execution.
+ * Return: 1 and 2 if failed, and 0 for successfuk execution.
 **/
 
 int main(int argc, char *argv[])
@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 	if (argc != 2)
 	{
 		printf("Error\n");
-		return (1);
+		exit(1);
 	}
 
 	num_bytes = atoi(argv[1]);
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 	if (num_bytes < 0)
 	{
 		printf("Error\n");
-		return (1);
+		exit(2);
 	}
 	print_opcodes(num_bytes);
 
@@ -48,9 +48,11 @@ void print_opcodes(int num_bytes)
 		for (i = 0; i < num_bytes; i++)
 		{
 			printf("%02x", opcode_start[i]);
-			if (i < num_bytes - 1)
 			{
-				printf(" ");
+				if (i < num_bytes - 1)
+				{
+					printf(" ");
+				}
 			}
 		}
 		printf("\n");
