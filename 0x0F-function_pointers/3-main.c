@@ -1,41 +1,47 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "3-calc.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
  * main - Entry point
  * @argc: arguement count
  * @argv: arguement vector
+ *
+ * Return: error 98,99,100 if failed and 0 for successful execution.
 **/
 
 int main(int argc, char *argv[])
 {
-    if (argc != 4)
-    {
-        printf("Error\n");
-        return (98);
-    }
+	int num1;
+	char *operator;
+	int num2;
+	int (*operation)(int, int);
 
-    int num1 = atoi(argv[1]);
-    char *operator = argv[2];
-    int num2 = atoi(argv[3]);
+	if (argc != 4)
+	{
+		printf("Error\n");
+		return (98);
+	}
 
-    int (*operation)(int, int) = get_op_func(operator);
+	num1 = atoi(argv[1]);
+	operator = argv[2];
+	num2 = atoi(argv[3]);
 
-    if (operation == NULL)
-    {
-        printf("Error\n");
-        return (99);
-    }
+	operation = get_op_func(operator);
 
-    if ((*operator == '/' || *operator == '%') && num2 == 0)
-    {
-        printf("Error\n");
-        return (100);
-    }
+	if (operation == NULL)
+	{
+		printf("Error\n");
+		return (99);
+	}
 
-    printf("%d\n", operation(num1, num2));
+	if ((*operator == '/' || *operator == '%') && num2 == 0)
+	{
+	       printf("Error\n");
+	       return (100);
+	}
 
-    return (0);
+	printf("%d\n", operation(num1, num2));
+
+	return (0);
 }
-
