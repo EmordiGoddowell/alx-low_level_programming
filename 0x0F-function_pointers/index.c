@@ -44,20 +44,19 @@ void print_opcodes(int num_bytes)
 	int i;
 
 	opcode_start = (unsigned char *)print_opcodes;
-
-	for (i = 0; i < num_bytes; i++)
 	{
-		if (i > 0)
+		for (i = 0; i < num_bytes; i++)
 		{
-			printf(" ");
-		}
+			if (i >= function_size)
+				break;
 
-		if (i >= sizeof(print_opcodes))
-		{
-			break;
-		}
+			printf("%02hhx", opcode_start[i]);
+			if (i < num_bytes - 1)
+			{
+				printf(" ");
+			}
 
-		printf("%02hhx", opcode_start[i]);
+			printf("\n");
+		}
 	}
-	printf("\n");
 }
