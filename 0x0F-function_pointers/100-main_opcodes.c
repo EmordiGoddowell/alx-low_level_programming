@@ -48,11 +48,12 @@ void print_opcodes(int num_bytes)
 		for (i = 0; i < num_bytes; i++)
 		{
 			printf("%02hhx", opcode_start[i]);
+			if (i < num_bytes - 1)
+			{
+				printf(" ");
+			}
+
+			printf("\n");
 		}
-		if (i < num_bytes - 1)
-		{
-			printf(" ");
-		}
-		printf("\n");
 	}
 }
