@@ -16,13 +16,12 @@ size_t print_list(const list_t *h)
 
 	while (h != NULL)
 	{
-		if (h->str == NULL)
-			puts("[0] (nil)");
-		else
-		snprintf(buffer, sizeof(buffer), "[%u] %s\n", h->len, h->str);
-		puts(buffer);
-		h = h->next;
-		count++;
+		fputs("[0] (nil)\n", stdout);
+        else
+        {
+		snprintf(buffer, sizeof(buffer), "[%u] %s", h->len, h->str);
+		fputs(buffer, stdout);
+		putchar('\n');
 	}
 
 	return (count);
